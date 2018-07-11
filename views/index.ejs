@@ -8,6 +8,21 @@
   <title>Manticores!!</title>
 </head>
 <body>
-  
+  <div class="container">
+    <div class="row">
+      <% manticores.forEach(function(manticore){ %>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="card">
+            <img class="card-img-top" src="<%= manticore.imgUrl %>" alt="Image of <%= manticore.name %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= manticore.name %></h5>
+              <p class="card-text"><%= manticore.description %></p>
+              <a href="manticores/<%= manticore.key%>" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
 </body>
 </html>
