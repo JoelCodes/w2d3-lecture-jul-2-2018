@@ -8,6 +8,25 @@
   <title>Manticores!!</title>
 </head>
 <body>
-  
+  <div class="container">
+  <h1>Create New Manticore</h1>
+    <form method="POST" action="/manticores">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name='name'>
+        <small id="emailHelp" class="form-text text-muted">Enter something cute. Or fierce.  </small>
+      </div>
+      <div class="form-group">
+        <label for="imgUrl">Image URL</label>
+        <input type="text" class="form-control" name="imgUrl" id="imgUrl">
+        <small id="emailHelp" class="form-text text-muted">Must be an http address to files of type png, jpg, jpeg, bmp, svg, or gif.</small>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </body>
 </html>

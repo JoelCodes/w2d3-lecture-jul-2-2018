@@ -1,7 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 let manticores = [
   {name: 'Fluffy', key: 'fluffy', imgUrl: 'https://vignette.wikia.nocookie.net/harrypotter/images/1/15/Manticore_FBCFWW.png/revision/latest?cb=20170413064522', description: 'Fluffy is an adorable French Poodle / Lion / Scorpion / Human mix'},
@@ -21,6 +26,14 @@ app.get('/manticores/new', (req, res) => {
 
 app.post('/manticores', (req, res) => {
   // Create a new manticore
+  console.log(req.body);
+  const newManticore = {
+    name: req.body.name,
+    imgUrl: req.body.imgUrl,
+    description: req.body.description,
+    key: req.body.name.toLowerCase()
+  };
+  manticores.push(newManticore);
   res.redirect('/manticores');
 })
 
